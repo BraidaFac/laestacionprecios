@@ -65,7 +65,7 @@
 </script>
 
 <Dialog.Root open={isOpen} onOpenChange={() => (isOpen = !isOpen)}>
-	<Dialog.Content class="rigth-1/2 absolute top-1/2 h-2/3  sm:max-w-[425px]">
+	<Dialog.Content class="rigth-1/2 absolute top-1/2 h-2/3 w-11/12  sm:max-w-[425px]">
 		{#if !$loadingStore}
 			<Dialog.Header>
 				<Dialog.Title class="text-center text-2xl text-black">Cargar Excel</Dialog.Title>

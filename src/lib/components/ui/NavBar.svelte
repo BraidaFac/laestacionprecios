@@ -12,7 +12,7 @@
 <!-- Grilla que se adapta a dos columnas en pantallas pequeñas y tres en pantallas medianas -->
 <div class="relative mt-3 flex h-12 w-full items-center justify-center md:h-20">
 	<!-- Este div usa flexbox para centrar el contenido -->
-	<div class="title-font logo text-3xl md:text-6xl">
+	<div class="title-font logo text-5xl md:text-6xl">
 		<span class="texto-titulo text-black">la e</span>
 		<span class="texto-rojo text-red-800">s</span>
 		<span class="texto-titulo text-black">tación</span>

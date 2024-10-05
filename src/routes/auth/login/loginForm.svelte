@@ -32,7 +32,7 @@
 	<Form.Field {form} name="password">
 		<Form.Control let:attrs>
 			<Form.Label>Contrasena</Form.Label>
-			<Input {...attrs} bind:value={$formData.password} />
+			<Input {...attrs} type="password" bind:value={$formData.password} />
 		</Form.Control>
 		<Form.FieldErrors class="text-xs" />
 	</Form.Field>
