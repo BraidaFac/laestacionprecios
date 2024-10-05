@@ -21,7 +21,7 @@
 	}
 </script>
 
-<form class="mx-auto w-1/2" method="POST" use:enhance>
+<form class="mx-auto mt-5 w-11/12 md:w-1/2" method="POST" use:enhance>
 	<Form.Field {form} name="username">
 		<Form.Control let:attrs>
 			<Form.Label>Usuario</Form.Label>
