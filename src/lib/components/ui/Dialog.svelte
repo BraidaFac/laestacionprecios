@@ -65,15 +65,18 @@
 </script>
 
 <Dialog.Root open={isOpen} onOpenChange={() => (isOpen = !isOpen)}>
-	<Dialog.Content class="rigth-1/2 absolute top-1/2 h-2/3 w-11/12  sm:max-w-[425px]">
+	<Dialog.Content class="h-1/3 w-11/12 md:h-2/3 md:w-1/3">
 		{#if !$loadingStore}
 			<Dialog.Header>
-				<Dialog.Title class="text-center text-2xl text-black">Cargar Excel</Dialog.Title>
-				<Dialog.Description class="text-center text-lg text-red-700">
-					Asegurate que el EXCEL tenga formato de
-					<br />
-					<span>[CODIGO,PRENDA,DESCRIPCION,PRECIO]</span><br /> y que la hoja tenga el nombre de la marca.
-				</Dialog.Description>
+				<div class="flex flex-col items-center">
+					<Dialog.Title class=" text-center text-2xl text-black">Cargar Excel</Dialog.Title>
+					<Dialog.Description class=" text-center text-lg text-red-700">
+						Asegurate que el EXCEL tenga formato de
+						<br />
+						<span>[CODIGO,PRENDA,DESCRIPCION,PRECIO]</span><br /> y que la hoja tenga el nombre de la
+						marca.
+					</Dialog.Description>
+				</div>
 			</Dialog.Header>
 			<div class="grid gap-4 py-4">
 				<form on:submit|preventDefault={handleSubmit} enctype="multipart/form-data">
