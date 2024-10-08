@@ -13,7 +13,6 @@ export const load = async ({ depends }) => {
 
 		return { articulos: detailedArticles };
 	} catch (err) {
-		console.log(err);
 		fail(500, { message: 'Error al cargar los articulos.' });
 	}
 };

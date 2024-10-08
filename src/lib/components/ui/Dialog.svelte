@@ -46,7 +46,6 @@
 				}
 			} catch (error) {
 				// Error de red u otro problema inesperado
-				console.error(error);
 				toast.error('Hubo un problema procesando el archivo. Intenta nuevamente.', {
 					duration: 2000
 				});

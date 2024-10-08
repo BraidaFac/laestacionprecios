@@ -1,13 +1,12 @@
 import type { Article } from '@prisma/client';
 import { json } from '@sveltejs/kit';
 import ExcelJS from 'exceljs';
-
+import { prisma } from '$lib/server/prisma';
 export const POST = async ({ request }: { request: Request }) => {
 	try {
 		// Parseamos el request para obtener los datos del formulario
 		const inputData = await request.formData();
 		const file = inputData.get('file'); // Archivo subido
-
 		if (!file || !(file instanceof Blob)) {
 			return json({ error: 'No se subió ningún archivo' }, { status: 400 });
 		}
@@ -19,7 +18,6 @@ export const POST = async ({ request }: { request: Request }) => {
 		// Usamos ExcelJS para leer el archivo
 		const workbook = new ExcelJS.Workbook();
 		await workbook.xlsx.load(buffer);
-
 		const result: Partial<Article>[] = [];
 
 		// Iteramos sobre cada hoja en el archivo Excel
@@ -55,9 +53,6 @@ export const POST = async ({ request }: { request: Request }) => {
 						);
 					});
 
-					if (index > 0) {
-						console.log('index', index);
-					}
 					//Verificar si el codigo ya no esta dentro de result
 					if (index !== -1) {
 						result[index] = {
@@ -83,7 +78,6 @@ export const POST = async ({ request }: { request: Request }) => {
 				}
 			});
 		});
-		console.log('result', result);
 
 		//Necesito eliminar todo lo que tiene Article en la db y cargar en lote lo que se proceso
 		await prisma.$transaction([
@@ -92,7 +86,7 @@ export const POST = async ({ request }: { request: Request }) => {
 		]);
 		return json({ success: true });
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 		return json({ error: 'Error procesando el archivo' }, { status: 500 });
 	}
 };
