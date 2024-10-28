@@ -2,11 +2,12 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { userStore } from '$lib/stores/user';
-	import { redirect } from '@sveltejs/kit';
-	import Dialog from './Dialog.svelte';
 	import { goto } from '$app/navigation';
+	import ExcelDialog from './ExcelDialog.svelte';
+	import ArticleDialog from './ArticleDialog.svelte';
 
-	$: isDialogOpen = false;
+	$: isExcelDialogOpen = false;
+	$: isNuevoArticuloDialogOpen = false;
 </script>
 
 <!-- Grilla que se adapta a dos columnas en pantallas pequeñas y tres en pantallas medianas -->
@@ -31,10 +32,17 @@
 				<DropdownMenu.Content class="w-28 md:w-40">
 					<DropdownMenu.Item
 						on:click={() => {
-							isDialogOpen = !isDialogOpen;
+							isExcelDialogOpen = !isExcelDialogOpen;
 						}}
 					>
 						Cargar Excel
+					</DropdownMenu.Item>
+					<DropdownMenu.Item
+						on:click={() => {
+							isNuevoArticuloDialogOpen = !isNuevoArticuloDialogOpen;
+						}}
+					>
+						Nuevo Articulo
 					</DropdownMenu.Item>
 					<DropdownMenu.Item
 						on:click={async () => {
@@ -76,7 +84,8 @@
 </div>
 
 <!-- Componente del diálogo -->
-<Dialog bind:isOpen={isDialogOpen}></Dialog>
+<ExcelDialog bind:isOpen={isExcelDialogOpen}></ExcelDialog>
+<ArticleDialog bind:isOpen={isNuevoArticuloDialogOpen}></ArticleDialog>
 
 <style>
 	.logo {

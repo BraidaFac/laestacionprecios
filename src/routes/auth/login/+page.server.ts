@@ -52,8 +52,6 @@ export const actions: Actions = {
 			// Establecer el JWT en una cookie segura
 			cookies.set('jwt', token, cookieOptions);
 		} catch (error: any) {
-			console.log('error', error);
-
 			// Manejar errores inesperados
 			return fail(500, { message: error.message });
 		}

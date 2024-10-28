@@ -7,7 +7,6 @@
 	import { Button, buttonVariants } from '$lib/components/ui/button/index.js';
 	import { toast } from 'svelte-sonner';
 	let file: File | null = null;
-	let message: string | null = null; // Para guardar el mensaje de éxito o error
 	let isSubmitting: boolean = false; // Estado para deshabilitar el botón mientras se procesa
 	export let isOpen: boolean;
 
